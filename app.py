@@ -144,16 +144,16 @@ if uploaded_file is not None:
 else:
     def user_input_features():       
                 
-        V3 = st.sidebar.slider('V3', float(df["V3"].min()), float(df["V3"].max()), float(-1.61), 0.01)
-        V4 = st.sidebar.slider('V4', float(df["V4"].min()), float(df["V4"].max()), float(4.00), 0.01)
-        V7 = st.sidebar.slider('V7', float(df["V7"].min()), float(df["V7"].max()), float(-2.54), 0.01)
-        V9 = st.sidebar.slider('V9', float(df["V9"].min()), float(df["V9"].max()), float(-2.77), 0.01)
-        V10 = st.sidebar.slider('V10', float(df["V10"].min()), float(df["V10"].max()), float(-2.77), 0.01)
-        V11 = st.sidebar.slider('V11', float(df["V11"].min()), float(df["V11"].max()), float(3.20), 0.01)
-        V12 = st.sidebar.slider('V12', float(df["V12"].min()), float(df["V12"].max()), float(-2.90), 0.01)
-        V14 = st.sidebar.slider('V14', float(df["V14"].min()), float(df["V14"].max()), float(-4.29), 0.01)
-        V16 = st.sidebar.slider('V16', float(df["V16"].min()), float(df["V16"].max()), float(-1.14), 0.01)
-        V17 = st.sidebar.slider('V17', float(df["V17"].min()), float(df["V17"].max()), float(-2.83), 0.01)
+        V3 = st.sidebar.slider('V3', float(df["V3"].min()), float(df["V3"].max()), float(-4.52), 0.01)
+        V4 = st.sidebar.slider('V4', float(df["V4"].min()), float(df["V4"].max()), float(1.75), 0.01)
+        V7 = st.sidebar.slider('V7', float(df["V7"].min()), float(df["V7"].max()), float(-0.88), 0.01)
+        V9 = st.sidebar.slider('V9', float(df["V9"].min()), float(df["V9"].max()), float(-2.06), 0.01)
+        V10 = st.sidebar.slider('V10', float(df["V10"].min()), float(df["V10"].max()), float(-5.59), 0.01)
+        V11 = st.sidebar.slider('V11', float(df["V11"].min()), float(df["V11"].max()), float(2.12), 0.01)
+        V12 = st.sidebar.slider('V12', float(df["V12"].min()), float(df["V12"].max()), float(-5.42), 0.01)
+        V14 = st.sidebar.slider('V14', float(df["V14"].min()), float(df["V14"].max()), float(-6.67), 0.01)
+        V16 = st.sidebar.slider('V16', float(df["V16"].min()), float(df["V16"].max()), float(-2.90), 0.01)
+        V17 = st.sidebar.slider('V17', float(df["V17"].min()), float(df["V17"].max()), float(-4.57), 0.01)
         
         data= {'V3' : V3,
                 'V4' : V4,
