@@ -29,9 +29,6 @@ df = pd.read_csv(zf.open('Final_data.csv'), encoding="utf-8")
 csv = df.to_csv(index=False)
 b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
 
-# #Clean columns
-# df = df.iloc[:, [0,1,2,3,4,5,7,8,9,6]]
-# df = df.rename(columns={"Departments " : "departments", "Work_accident" : "work_accident"})
 model = pickle.load(open("final_model_fraud_detection", "rb"))
 
 #separating X and y
@@ -146,31 +143,28 @@ if uploaded_file is not None:
     input_df = pd.read_csv(uploaded_file)
 else:
     def user_input_features():       
-#         -8.53252246,   8.34439167, -10.98918467, -11.435624  ,
-#           7.67453383, -14.29609143, -15.44502581, -12.391346  ,
-#         -22.54165173,   2.33146581,   1.     
                 
-        V3 = st.sidebar.slider('V3', float(df["V3"].min()), float(df["V3"].max()), float(-8.53252246), 0.01)
-        V4 = st.sidebar.slider('V4', float(df["V4"].min()), float(df["V4"].max()), float(8.34439167), 0.01)
-        V7 = st.sidebar.slider('V7', float(df["V7"].min()), float(df["V7"].max()), float(-10.98918467), 0.01)
-        V10 = st.sidebar.slider('V10', float(df["V10"].min()), float(df["V10"].max()), float(-11.435624), 0.01)
-        V11 = st.sidebar.slider('V11', float(df["V11"].min()), float(df["V11"].max()), float(7.67453383), 0.01)
-        V12 = st.sidebar.slider('V12', float(df["V12"].min()), float(df["V12"].max()), float(-14.29609143), 0.01)
-        V14 = st.sidebar.slider('V14', float(df["V14"].min()), float(df["V14"].max()), float(-15.44502581), 0.01)
-        V16 = st.sidebar.slider('V16', float(df["V16"].min()), float(df["V16"].max()), float(-12.391346), 0.01)
-        V17 = st.sidebar.slider('V17', float(df["V17"].min()), float(df["V17"].max()), float(-22.54165173), 0.01)
-        V21 = st.sidebar.slider('V21', float(df["V21"].min()), float(df["V21"].max()), float(2.33146581), 0.01)
-
+        V3 = st.sidebar.slider('V3', float(df["V3"].min()), float(df["V3"].max()), float(-1.61), 0.01)
+        V4 = st.sidebar.slider('V4', float(df["V4"].min()), float(df["V4"].max()), float(4.00), 0.01)
+        V7 = st.sidebar.slider('V7', float(df["V7"].min()), float(df["V7"].max()), float(-2.54), 0.01)
+        V9 = st.sidebar.slider('V9', float(df["V9"].min()), float(df["V9"].max()), float(-2.77), 0.01)
+        V10 = st.sidebar.slider('V10', float(df["V10"].min()), float(df["V10"].max()), float(-2.77), 0.01)
+        V11 = st.sidebar.slider('V11', float(df["V11"].min()), float(df["V11"].max()), float(3.20), 0.01)
+        V12 = st.sidebar.slider('V12', float(df["V12"].min()), float(df["V12"].max()), float(-2.90), 0.01)
+        V14 = st.sidebar.slider('V14', float(df["V14"].min()), float(df["V14"].max()), float(-4.29), 0.01)
+        V16 = st.sidebar.slider('V16', float(df["V16"].min()), float(df["V16"].max()), float(-1.14), 0.01)
+        V17 = st.sidebar.slider('V17', float(df["V17"].min()), float(df["V17"].max()), float(-2.83), 0.01)
+        
         data= {'V3' : V3,
                 'V4' : V4,
                 'V7' : V7,
+                'V9' : V9,
                 'V10' : V10,
                 'V11' : V11,
                 'V12' : V12,
                 'V14' : V14,
                 'V16' : V16,
-                'V17' : V17,
-                'V21' : V21
+                'V17' : V17   
                 }
         features = pd.DataFrame(data, index=[0])
         return features
@@ -181,14 +175,14 @@ col1, col2, col3, col4,col5 = st.columns(5)
 col1.metric("*V3", input_df["V3"].round(3)) 
 col2.metric("*V4", input_df["V4"].round(3))
 col3.metric("*V7", input_df["V7"].round(3))
-col4.metric("*V10", input_df["V10"].round(3))
-col5.metric("*V11", input_df["V11"].round(3))
+col4.metric("*V9", input_df["V9"].round(3))
+col5.metric("*V10", input_df["V10"].round(3))
 col1, col2, col3,col4,col5 = st.columns(5)
-col1.metric("*V12", input_df["V12"].round(3)) 
-col2.metric("*V14", input_df["V14"].round(3))
-col3.metric("*V16", input_df["V16"].round(3))
-col4.metric("*V17", input_df["V17"].round(3))
-col5.metric("*V21", input_df["V21"].round(3))
+col1.metric("*V11", input_df["V11"].round(3))
+col2.metric("*V12", input_df["V12"].round(3)) 
+col3.metric("*V14", input_df["V14"].round(3))
+col4.metric("*V16", input_df["V16"].round(3))
+col5.metric("*V17", input_df["V17"].round(3))
 st.markdown("---")
 
 
