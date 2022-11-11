@@ -12,10 +12,10 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Credit Card Fraud Detection App")
 import zipfile
 with zipfile.ZipFile("Final_data.zip","r") as zip_ref:
-    zip_ref.extractall("https://github.com/zubeydeulukok/Fraud_Detection/edit/main")
+    zip_ref.extractall()
     
 #Import the dataset
-fraud = pd.read_csv("Final_data_imp.csv")
+fraud = pd.read_csv("https://github.com/zubeydeulukok/Fraud_Detection/edit/main/Final_data_imp.csv")
 df = fraud.copy()
 csv = df.to_csv(index=False)
 b64 = base64.b64encode(csv.encode()).decode()  # strings <-> bytes conversions
