@@ -10,14 +10,20 @@ import matplotlib.pyplot as plt
 
 
 st.set_page_config(page_title="Credit Card Fraud Detection App")
-# import zipfile
-# with zipfile.ZipFile("Final_data.zip","r") as zip_ref:
-#     zip_ref.extractall()
+import zipfile
+import pandas as pd
 
-unzipped_file = zipfile.ZipFile("Final_data.zip", "r") # get contents without extracting.
-df = unzipped_file.read("Final_data.csv")
+zf = zipfile.ZipFile('Final_data.zip') 
+# if you want to see all files inside zip folder
+print(zf.namelist())
 
-#Import the dataset
+# now read your csv file 
+df = pd.read_csv(zf.open('Final_data.csv'), encoding="utf-8")
+
+# unzipped_file = zipfile.ZipFile("Final_data.zip", "r") # get contents without extracting.
+# df = unzipped_file.read("Final_data.csv")
+
+# Import the dataset
 # fraud = pd.read_csv("https://github.com/zubeydeulukok/Fraud_Detection/edit/main/Final_data.csv")
 # df = fraud.copy()
 csv = df.to_csv(index=False)
